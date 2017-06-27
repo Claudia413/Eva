@@ -8,6 +8,7 @@ import injectTapEventPlugin from "react-tap-event-plugin";
 import store, { history } from "./store";
 import "./index.css";
 import SignIn from "./users/SignIn";
+import GroupsContainer from "./components/GroupsContainer"
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
@@ -17,7 +18,7 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
       <Route path="/" component={App}>
-        {/* <IndexRoute component={SignIn} /> */}
+        <IndexRoute component={GroupsContainer} />
         <Route path="/sign-in" component={SignIn} />
       </Route>
     </Router>
