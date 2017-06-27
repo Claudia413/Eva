@@ -5,9 +5,7 @@ import { replace, push } from 'react-router-redux'
 import Paper from 'material-ui/Paper'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
-import FlatButton from 'material-ui/FlatButton'
 import signIn from '../actions/user/sign-in'
-import Title from '../components/Title'
 
 const dialogStyle = {
   width: '400px',
@@ -44,7 +42,6 @@ export class SignIn extends PureComponent {
   render() {
     return (
       <Paper style={ dialogStyle }>
-        <Title content="Sign In" level={2} />
 
         <form onSubmit={this.submitForm.bind(this)}>
           <div className="input">
