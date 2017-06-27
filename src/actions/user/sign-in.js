@@ -19,18 +19,19 @@ export default (user) => {
     dispatch({ type: APP_LOADING })
 
     api.authenticate(user)
-      .then((user) => {
+      .then((result) => {
         dispatch({ type: APP_DONE_LOADING })
         dispatch({ type: LOAD_SUCCESS })
 
-        api.app.set('user', user)
+        api.app.set('user', result)
 
         history.replace('/')
 
         dispatch({
           type: USER_SIGNED_IN,
-          payload: user
+          payload: result
         })
+
       })
       .catch((error) => {
         dispatch({ type: APP_DONE_LOADING })
