@@ -19,6 +19,10 @@ class Navigation extends PureComponent {
     this.props.push("/");
   };
 
+  signIn = () => {
+    this.props.push("/sign-in")
+  };
+
   render() {
     const { signedIn, signOut } = this.props;
     return (
@@ -28,7 +32,7 @@ class Navigation extends PureComponent {
         iconElementRight={
           signedIn
             ? <FlatButton label="Sign out" onClick={signOut} />
-            : <p>signedIn is true maar alleen met auth token</p>
+            : <FlatButton label="Sign in" onClick={this.signIn} />
         }
       />
     );
