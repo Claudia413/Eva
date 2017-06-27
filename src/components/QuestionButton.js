@@ -17,4 +17,4 @@ class QuestionButton extends PureComponent {
   }
 }
 
-export default LikeButton
+export default QuestionButton

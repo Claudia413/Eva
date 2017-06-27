@@ -27,7 +27,8 @@ class Navigation extends PureComponent {
         iconElementLeft={<IconButton onClick={this.goHome}>Eva</IconButton>}
         iconElementRight={signedIn ?
           <FlatButton label="Sign out" onClick={signOut} /> :
-          <p>signedIn = false momenteel </p>
+          <p>signedIn is true maar alleen met auth token</p>
+
         }
       />
     )
