@@ -1,41 +1,53 @@
-// src/recipes/RecipesContainer.js
-import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-// import GroupShow from './GroupShow'
-import fetchGroups from '../actions/groups/fetch'
+import React, { PureComponent } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import GroupShow from "./GroupShow";
+import fetchStudents from "../actions/students/fetch";
 // import CreateRecipeButton from './CreateRecipeButton'
 
 export class GroupsContainer extends PureComponent {
   static propTypes = {
-    groups: PropTypes.array.isRequired,
-    fetchGroups: PropTypes.func.isRequired,
-  }
+    fetchStudents: PropTypes.func.isRequired
+  };
+
+  // .from(new Set());
+  // }).map(function(batchNumber) {
+  //   return <p key={index}>Batch number {batchNumber}</p>
+  // })
 
   componentWillMount() {
-    this.props.fetchGroups()
+    this.props.fetchStudents();
   }
 
-  renderGroup(group, index) {
-    return <p key={index}>{group.groupNumber}</p>
+  renderGroups(batch, index) {
+    return <p key={index}>Batch number {batch}</p>;
   }
 
   render() {
-    return(
+    const studentBatches = this.props.students.map(function(student, index) {
+      return student.batch[0].number;
+    });
+    const batches = new Set(studentBatches);
+    const differentGroups = [ ...batches ].map(function(batchNumber){
+      return <p>Batch number: { batchNumber }</p>
+    })
+
+    return (
       <div className="groups wrapper">
         <header>
           <h2>All Groups</h2>
         </header>
 
         <main>
-          { this.props.groups.map(this.renderGroup) }
+          {differentGroups}
         </main>
       </div>
-    )
+    );
   }
 }
 
-const mapStateToProps = ({ groups }) => ({ groups })
+const mapStateToProps = ({ students }) => ({ students });
 
 export default connect(mapStateToProps, {
-  fetchGroups})(GroupsContainer)
+  fetchStudents
+})(GroupsContainer);
