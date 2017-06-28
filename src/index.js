@@ -9,6 +9,7 @@ import store, { history } from "./store";
 import "./index.css";
 import SignIn from "./users/SignIn";
 import GroupsContainer from "./components/GroupsContainer"
+import GroupShow from './components/GroupShow'
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
@@ -19,6 +20,7 @@ ReactDOM.render(
     <Router history={history}>
       <Route path="/" component={App}>
         <IndexRoute component={GroupsContainer} />
+        <Route component={GroupShow} />
         <Route path="/sign-in" component={SignIn} />
       </Route>
     </Router>
