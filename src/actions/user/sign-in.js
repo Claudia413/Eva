@@ -27,6 +27,8 @@ export default (user) => {
 
         history.replace('/')
 
+        console.log(result);
+
         dispatch({
           type: USER_SIGNED_IN,
           payload: result

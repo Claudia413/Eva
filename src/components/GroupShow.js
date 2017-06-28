@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import fetchStudents from '../actions/students/fetch'
 // import CreateRecipeButton from './CreateRecipeButton'
 
-export class GroupsContainer extends PureComponent {
+export class GroupShow extends PureComponent {
   static propTypes = {
     fetchStudents: PropTypes.func.isRequired,
   }
@@ -27,13 +27,13 @@ export class GroupsContainer extends PureComponent {
   render() {
     const urlBatch = window.location.href.split("/").pop();
     const currentGroup = this.props.students.filter(function(student, index, params){
-      return (student.batch[0].number == urlBatch);
+      return (student.batch[0].number === urlBatch);
     }).map(function(student, index){
       return <p key={index}>{student.name}</p>
     })
 
     return(
-      <div className="groups wrapper">
+      <div className="student wrapper">
         <header>
           <h2>Current Group</h2>
         </header>
@@ -49,4 +49,4 @@ export class GroupsContainer extends PureComponent {
 const mapStateToProps = ({ students }) => ({ students })
 
 export default connect(mapStateToProps, {
-  fetchStudents})(GroupsContainer)
+  fetchStudents})(GroupShow)
