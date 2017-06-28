@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { Link } from 'react-router'
 import GroupShow from "./GroupShow";
 import fetchStudents from "../actions/students/fetch";
 // import CreateRecipeButton from './CreateRecipeButton'
@@ -29,7 +30,7 @@ export class GroupsContainer extends PureComponent {
     });
     const batches = new Set(studentBatches);
     const differentGroups = [ ...batches ].map(function(batchNumber){
-      return <p>Batch number: { batchNumber }</p>
+      return <Link to={`/batch/${batchNumber}`}><p>Batch number: { batchNumber }</p></Link>
     })
 
     return (
