@@ -22,6 +22,7 @@ ReactDOM.render(
         <IndexRoute component={GroupsContainer} />
         <Route component={GroupShow} />
         <Route path="/sign-in" component={SignIn} />
+        <Route path="/batch/:batchNumber" component={GroupShow} />
       </Route>
     </Router>
   </Provider>,

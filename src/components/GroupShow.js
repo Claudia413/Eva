@@ -25,8 +25,9 @@ export class GroupsContainer extends PureComponent {
   // }
 
   render() {
-    const currentGroup = this.props.students.filter(function(student, index){
-      return (student.batch[0].number == 8);
+    const urlBatch = window.location.href.split("/").pop();
+    const currentGroup = this.props.students.filter(function(student, index, params){
+      return (student.batch[0].number == urlBatch);
     }).map(function(student, index){
       return <p key={index}>{student.name}</p>
     })
