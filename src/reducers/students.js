@@ -1,9 +1,8 @@
-// src/reducers/groups.js
-import { FETCHED_GROUPS } from '../actions/groups/fetch'
+import { FETCHED_STUDENTS } from '../actions/students/fetch'
 
 export default (state = [], { type, payload } = {}) => {
   switch (type) {
-    case FETCHED_GROUPS :
+    case FETCHED_STUDENTS :
       return [ ...payload ]
 
     default :

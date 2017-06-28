@@ -3,21 +3,20 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 // import GroupShow from './GroupShow'
-import fetchGroups from '../actions/groups/fetch'
+import fetchStudents from '../actions/students/fetch'
 // import CreateRecipeButton from './CreateRecipeButton'
 
 export class GroupsContainer extends PureComponent {
   static propTypes = {
-    groups: PropTypes.array.isRequired,
-    fetchGroups: PropTypes.func.isRequired,
+    fetchStudents: PropTypes.func.isRequired,
   }
 
   componentWillMount() {
-    this.props.fetchGroups()
+    this.props.fetchStudents()
   }
 
-  renderGroup(group, index) {
-    return <p key={index}>{group.groupNumber}</p>
+  renderGroup(student, index) {
+    return <p key={index}>{student.name}</p>
   }
 
   render() {
@@ -28,14 +27,14 @@ export class GroupsContainer extends PureComponent {
         </header>
 
         <main>
-          { this.props.groups.map(this.renderGroup) }
+          { this.props.students.map(this.renderGroup) }
         </main>
       </div>
     )
   }
 }
 
-const mapStateToProps = ({ groups }) => ({ groups })
+const mapStateToProps = ({ students }) => ({ students })
 
 export default connect(mapStateToProps, {
-  fetchGroups})(GroupsContainer)
+  fetchStudents})(GroupsContainer)
