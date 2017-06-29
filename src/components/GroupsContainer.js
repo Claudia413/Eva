@@ -30,7 +30,8 @@ export class GroupsContainer extends PureComponent {
     });
     const batches = new Set(studentBatches);
     const differentGroups = [ ...batches ].map(function(batchNumber, index){
-      return <Link to={`/batch/${batchNumber}`}><p key={ index }>Batch number: { batchNumber }</p></Link>
+      return <Link to={`/batch/${batchNumber}`}><p key={ index }>Batch number: { batchNumber }
+      </p></Link>
     })
 
     return (

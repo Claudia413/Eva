@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import fetchStudents from "../actions/students/fetch";
 import QuestionButton from "./QuestionButton";
 import ChosenOne from "./ChosenOne";
+import "./GroupShow.css"
 
 export class GroupShow extends PureComponent {
   static propTypes = {
@@ -51,8 +52,11 @@ export class GroupShow extends PureComponent {
 
         <main>
           <QuestionButton batchStudents={batchStudents} />
-
-          {currentGroup}
+          <div className="container">
+            <div className="flexwrap">
+              {currentGroup}
+            </div>
+          </div>
         </main>
       </div>
     );
