@@ -25,6 +25,7 @@ export class QuestionButton extends PureComponent {
       return student.grades[student.grades.length -1] === 3;
     });
 
+    
     // console.log(redStudents.map(function(student) { return student.grades})
     // console.log(yellowStudents.map(function(student) { return student.name})
 
