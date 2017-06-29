@@ -13,8 +13,6 @@ export default (
   switch (type) {
     case USER_SIGNED_IN:
       const currentUser = { ...payload };
-      console.log({ ...payload }, currentUser);
-      console.log(JSON.stringify(currentUser));
       window.localStorage.setItem(currentUserKey, JSON.stringify(currentUser));
       return currentUser;
 
