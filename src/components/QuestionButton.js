@@ -11,10 +11,6 @@ export class QuestionButton extends PureComponent {
   render() {
     const batchStudents = this.props.batchStudents;
 
-    // function checkRed(student) {
-    //   return student.props.grades[-1] === 1
-    // };
-
     const redStudents = batchStudents.filter(function(student) {
       return student.grades[student.grades.length -1] === 1;
     });
@@ -26,58 +22,50 @@ export class QuestionButton extends PureComponent {
     });
 
     function percentageNum(min, max) {
-      return Math.random() * (max - min) + min;
+      return Math.floor(Math.random() * (max - min) + min);
     }
 
-    function shuffle(a) {
-      for (let i = a.length; i; i--) {
-        let j = Math.floor(Math.random() * i);
-        [a[i - 1], a[j]] = [a[j], a[i - 1]];
-      }
-    }
+    function chooseOneStudent() {
 
-    const chosenGroup = function() {
       let pool = []
 
       if (redStudents.length>0) {
         let i = 0
-        while (i<50)
+        while (i<50) {
         pool.push("r")
         i++
       }
+      }
       if (yellowStudents.length>0) {
         let i = 0
-        while (i<33)
+        while (i<33) {
         pool.push("y")
         i++
       }
+      }
       if (greenStudents.length>0) {
         let i = 0
-        while (i<17)
+        while (i<17) {
         pool.push("g")
         i++
       }
-       return pool[percentageNum(0, (pool.length-1))]
-    }
-
-    function chooseOneStudent(chosenGroup) {
-      switch(chosenGroup) {
+      }
+      let maxNum = pool.length-1
+      let indexOfChoice = percentageNum(0, maxNum)
+       const test = pool[indexOfChoice]
+      switch(test) {
 
       case "r":
-        redStudents.shuffle
-        window.alert(redStudents[0].name)
+        window.alert(redStudents[percentageNum(0, (redStudents.length-1))].name)
         break;
       case "y":
-        yellowStudents.shuffle
-        window.alert(yellowStudents[0].name)
+        window.alert(yellowStudents[percentageNum(0, (yellowStudents.length-1))].name)
         break;
       case "g":
-        greenStudents.shuffle
-        window.alert(greenStudents[0].name)
+        window.alert(greenStudents[percentageNum(0, (greenStudents.length-1))].name)
         break;
       }
     }
-
 
     return (
       <div>

@@ -28,7 +28,6 @@ export class GroupShow extends PureComponent {
         return student.batch[0].number === urlBatch;
       })
       .map(function(student, index) {
-        console.log(classes);
         return (
           <div className={classes[student.grades[student.grades.length -1]]}>
             <p key={index}>{student.name}</p>
