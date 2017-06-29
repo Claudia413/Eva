@@ -20,9 +20,8 @@ ReactDOM.render(
     <Router history={history}>
       <Route path="/" component={App}>
         <IndexRoute component={GroupsContainer} />
-        <Route component={GroupShow} />
-        <Route path="/sign-in" component={SignIn} />
         <Route path="/batch/:batchNumber" component={GroupShow} />
+        <Route path="/sign-in" component={SignIn} />
       </Route>
     </Router>
   </Provider>,

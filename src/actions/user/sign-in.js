@@ -14,7 +14,6 @@ const api = new API()
 
 export default (user) => {
 
-  console.log(user)
   return (dispatch) => {
     dispatch({ type: APP_LOADING })
 
@@ -26,6 +25,8 @@ export default (user) => {
         api.app.set('user', result)
 
         history.replace('/')
+
+        console.log(result);
 
         dispatch({
           type: USER_SIGNED_IN,
