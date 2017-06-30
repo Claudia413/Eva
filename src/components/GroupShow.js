@@ -3,8 +3,9 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import fetchStudents from "../actions/students/fetch";
 import QuestionButton from "./QuestionButton";
-import ChosenOne from "./ChosenOne";
+import GradeBar from "./GradeBar";
 import "./GroupShow.css"
+
 
 export class GroupShow extends PureComponent {
   static propTypes = {
@@ -16,6 +17,8 @@ export class GroupShow extends PureComponent {
   }
 
   render() {
+    if (!this.props.students) return null
+
     const classes = {
       1: "red panel",
       2: "yellow panel",
@@ -25,7 +28,7 @@ export class GroupShow extends PureComponent {
     const urlBatch = window.location.href.split("/").pop();
     const currentGroup = this.props.students
       .filter(function(student, index, params) {
-        return student.batch[0].number === urlBatch;
+        return student.batch[0].number.toString() === urlBatch;
       })
       .map(function(student, index) {
         return (
@@ -50,7 +53,9 @@ export class GroupShow extends PureComponent {
         </header>
 
         <main>
+          console.log(batchStudents)
           <QuestionButton batchStudents={batchStudents} />
+          <GradeBar batchStudents={batchStudents} />
           <div className="container">
             <div className="flexwrap">
               {currentGroup}

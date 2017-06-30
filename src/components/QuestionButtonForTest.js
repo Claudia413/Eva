@@ -6,6 +6,7 @@ import "./QuestionButton.css";
 import ChosenOne from "./ChosenOne";
 
 export class QuestionButton extends PureComponent {
+  /* import students from current batch, are they in state already?*/
 
   render() {
     const batchStudents = this.props.batchStudents;
@@ -55,13 +56,13 @@ export class QuestionButton extends PureComponent {
       switch(test) {
 
       case "r":
-        window.alert(redStudents[percentageNum(0, (redStudents.length-1))].name)
+        <p>(redStudents[percentageNum(0, (redStudents.length-1))].name)</p>
         break;
       case "y":
-        window.alert(yellowStudents[percentageNum(0, (yellowStudents.length-1))].name)
+        <p>(yellowStudents[percentageNum(0, (yellowStudents.length-1))].name)</p>
         break;
       case "g":
-        window.alert(greenStudents[percentageNum(0, (greenStudents.length-1))].name)
+        <p>(greenStudents[percentageNum(0, (greenStudents.length-1))].name)</p>
         break;
       }
     }
@@ -71,6 +72,8 @@ export class QuestionButton extends PureComponent {
         <button onClick={ chooseOneStudent }>
           Choose a random student!
         </button>
+
+        <ChosenOne />
       </div>
     );
   }
