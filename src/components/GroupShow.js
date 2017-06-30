@@ -5,6 +5,7 @@ import fetchStudents from "../actions/students/fetch";
 import QuestionButton from "./QuestionButton";
 import GradeBar from "./GradeBar";
 import "./GroupShow.css"
+import StudentEditor from './StudentEditor'
 
 
 export class GroupShow extends PureComponent {
@@ -53,13 +54,13 @@ export class GroupShow extends PureComponent {
         </header>
 
         <main>
-          console.log(batchStudents)
           <QuestionButton batchStudents={batchStudents} />
           <GradeBar batchStudents={batchStudents} />
           <div className="container">
             <div className="flexwrap">
               {currentGroup}
             </div>
+            <StudentEditor />
           </div>
         </main>
       </div>

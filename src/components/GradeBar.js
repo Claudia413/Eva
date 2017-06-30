@@ -27,9 +27,9 @@ export class GradeBar extends PureComponent {
 
     return (
       <div className="barcontainer">
-        <div className="red bar" style={{width: `${redBar}`}} />
-        <div className="yellow bar" style={{width: `${yellowBar}`}} />
-        <div className="green bar" style={{width: `${greenBar}`}} />
+        <div className="red bar" style={{width: `${redBar}`}} > {redBar} </div>
+        <div className="yellow bar" style={{width: `${yellowBar}`}} > {redBar} </div>
+        <div className="green bar" style={{width: `${greenBar}`}} > {redBar} </div>
       </div>
     );
   }
