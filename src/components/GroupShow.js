@@ -60,7 +60,7 @@ export class GroupShow extends PureComponent {
             <div className="flexwrap">
               {currentGroup}
             </div>
-            <StudentEditor />
+            <StudentEditor batchStudents={batchStudents} />
           </div>
         </main>
       </div>

@@ -10,7 +10,6 @@ export class GradeBar extends PureComponent {
   render() {
     if (!this.props.batchStudents) return null
     const batchStudents = this.props.batchStudents;
-    console.log(this.props)
     const redStudents = batchStudents.filter(function(student) {
       return student.grades[student.grades.length -1] === 1;
     });

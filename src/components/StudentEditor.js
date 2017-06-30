@@ -8,14 +8,14 @@ import './StudentEditor.css'
 class StudentEditor extends PureComponent {
   constructor(props) {
     super()
-
+    const urlBatch = window.location.href.split("/").pop();
     const { name, picture, grades, batch } = props
 
     this.state = {
       name,
       picture,
       grades: [],
-      batch
+      batch: urlBatch,
     }
   }
 
@@ -53,6 +53,7 @@ class StudentEditor extends PureComponent {
       name,
       picture,
       grades,
+      batch
     }
 
     console.log(student)
@@ -60,6 +61,8 @@ class StudentEditor extends PureComponent {
   }
 
   render() {
+    if (!this.props.batchStudents) return null
+    const batchStudents = this.props.batchStudents;
     return (
       <div className="editor">
       <p>Add a student to this batch</p>
