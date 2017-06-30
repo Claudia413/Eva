@@ -14,8 +14,8 @@ class StudentEditor extends PureComponent {
     this.state = {
       name,
       picture,
-      grades,
-      batch,
+      grades: [],
+      batch
     }
   }
 
@@ -32,13 +32,6 @@ class StudentEditor extends PureComponent {
   updatePicture(event) {
     this.setState({
       picture: this.refs.picture.value
-    })
-  }
-
-  updateBatch(text, medium) {
-    const urlBatch = window.location.href.split("/").pop();
-    this.setState({
-      batch: urlBatch
     })
   }
 
@@ -59,8 +52,7 @@ class StudentEditor extends PureComponent {
     const student = {
       name,
       picture,
-      batch,
-      grades
+      grades,
     }
 
     console.log(student)
@@ -70,6 +62,7 @@ class StudentEditor extends PureComponent {
   render() {
     return (
       <div className="editor">
+      <p>Add a student to this batch</p>
         <input
           type="text"
           ref="name"

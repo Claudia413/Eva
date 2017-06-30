@@ -51,8 +51,8 @@ export class QuestionButton extends PureComponent {
       }
       let maxNum = pool.length-1
       let indexOfChoice = percentageNum(0, maxNum)
-       const test = pool[indexOfChoice]
-      switch(test) {
+       const color = pool[indexOfChoice]
+      switch(color) {
 
       case "r":
         window.alert(redStudents[percentageNum(0, (redStudents.length-1))].name)
